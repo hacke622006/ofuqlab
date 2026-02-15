@@ -1902,7 +1902,7 @@ function Footer() {
 
 
           <a
-            href="ofuqlab@gmail.com"
+            href="mailto:ofuqlab@gmail.com"
             style={iconLinkStyle}
             target='_blank'
             onMouseEnter={(e) => (e.currentTarget.style.color = colors.amber)}
