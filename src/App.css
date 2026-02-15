@@ -1,0 +1,9 @@
+/* 
+  Resetting default Vite #root styles to allow full-width layout.
+  The application handles its own layout and centering in individual components.
+*/
+#root {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}

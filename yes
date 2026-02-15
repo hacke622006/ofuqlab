@@ -1,0 +1,16 @@
+        {/* SVG Logo - Sunset over dune */}
+         <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+            {/* Golden sunset circle */}
+            <circle cx="20" cy="15" r="12" fill={colors.gold} />
+            {/* Brown dune at bottom */}
+            <path
+              d="M 0 40 Q 10 25, 20 28 T 40 40 Z"
+              fill={colors.brown}
+            />
+            {/* Darker brown accent */}
+            <path
+              d="M 0 40 Q 8 30, 15 32 T 28 40 Z"
+              fill={colors.darkBrown}
+              opacity="0.6"
+            />
+          </svg>
