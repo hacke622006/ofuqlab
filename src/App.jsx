@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, X, Instagram, Facebook, Mail, Phone, MapPin, ChevronDown, Menu as MenuIcon } from 'lucide-react';
 import ofuqlabLogo from "./assets/logo.png";
-import ahmedPhoto from "./assets/llogo.png";
+import ahmedPhoto from "./assets/llogo.jpg";
 import certImage from "./assets/cert1.jpg";
 
 
