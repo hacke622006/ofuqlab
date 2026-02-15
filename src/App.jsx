@@ -30,7 +30,7 @@ const teamMembers = [
     photo: ahmedPhoto, 
     specialty: "Drone Operator & Creative Director",
     bio: "Visionary filmmaker with a passion for aerial cinematography and storytelling. Ahmed brings a unique perspective to every project, turning ordinary scenes into cinematic experiences.",
-    skills: ["Drone Piloting", "Creative Direction", "Post-Production"]
+    skills: ["Creative Direction", "Post-Production"]
   },
 
 
