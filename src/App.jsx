@@ -1,5 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 import { Play, X, Instagram, Facebook, Mail, Phone, MapPin, ChevronDown, Menu as MenuIcon } from 'lucide-react';
 import ofuqlabLogo from "./assets/logo.png";
 import ahmedPhoto from "./assets/lodo.jpg";
@@ -66,6 +65,16 @@ const projects = [
     gradient: "linear-gradient(135deg, #C4722A, #8B5E3C, #5C3D2E)",
     videoSrc: "/videos/vi3.mp4",
     isVertical: true
+  },
+  {
+    id: 4,
+    title: "Luxury property cinematic tour",
+    category: "Premium Real Estate",
+    description: "A refined walkthrough crafted to elevate premium listings.High-impact visuals for social and paid campaigns.Smooth pacing designed to retain attention and convert interest into serious leads.",
+    tags: ["Luxury", "Cinematic", "Social Media"],
+    gradient: "linear-gradient(135deg, #F5C842, #C4722A, #8B5E3C)",
+    videoSrc: "/videos/v4.mp4",
+    isVertical: false
   }
 ];
 
@@ -78,7 +87,7 @@ const certificate = {
 };
 
 function App() {
-  const [activeSection, setActiveSection] = useState('home');
+  const [, setActiveSection] = useState('home');
   const [isLoading, setIsLoading] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -261,7 +270,7 @@ function App() {
         </div>
       )}
 
-      <Navbar activeSection={activeSection} setActiveSection={setActiveSection} />
+      <Navbar setActiveSection={setActiveSection} />
       <Hero />
       <About />
       <Team />
@@ -291,7 +300,7 @@ function App() {
 
 
 // ==================== NAVBAR ====================
-function Navbar({ activeSection, setActiveSection }) {
+function Navbar({ setActiveSection }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 769);
