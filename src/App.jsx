@@ -38,9 +38,9 @@ const teamMembers = [
 const projects = [
   {
     id: 1,
-    title: "Real estate video crafted for a client in Algiers",
+    title: "Highlighting a Residential Project in the Neighborhood",
     category: "Real Estate Production",
-    description: "I transform listings into engaging visual stories.Cinematic editing that highlights key features.Optimized pacing for TikTok and Instagram.Turning views into real buyer inquiries.",
+    description: "A corporate video built around an aerial drone shot, featuring a circular visual effect that draws attention to the facility and highlights its location within its surrounding environment. Colors and dynamic motion were carefully utilized to create a strong presence that enhances the project’s identity and gives it a striking, professional character.",
     tags: ["Aerial", "4K Cinema", "Real Estate"],
     gradient: "linear-gradient(135deg, #E8931E, #C4722A, #8B5E3C)",
     videoSrc: "/videos/v1.mp4",
@@ -48,9 +48,9 @@ const projects = [
   },
   {
     id: 2,
-    title: "Real estate marketing video",
+    title: "Visual Focus on the Facility",
     category: "Commercial Video",
-    description: "I present properties with clarity, style, and strategy.Focused storytelling that builds trust and interest.Social media–ready with attention-grabbing flow.Content designed to attract buyers and investors.",
+    description: "A real estate video that highlights the project within a dense urban environment using a professional drone shot, combined with a smart visual highlight of the building to direct the viewer’s attention instantly. Colors and cinematic motion were enhanced to present the location clearly and attractively, strengthening client confidence and making the advertisement more impactful.",
     tags: ["Branding", "Motion", "Color Grade"],
     gradient: "linear-gradient(135deg, #F5C842, #E8931E, #C4722A)",
     videoSrc: "/videos/v2.mp4",
@@ -58,9 +58,9 @@ const projects = [
   },
   {
     id: 3,
-    title: "Professional real estate showcase",
+    title: "Precise Project Location Overview",
     category: "Architecture Documentary",
-    description: "From static content to impactful property experiences.Clean, modern editing that emphasizes value and space.Vertical format ready for social platforms.Position your property as a premium opportunity.",
+    description: "An introductory video showcasing the project’s location within Al-Hadi neighborhood, using a modern visual design and an interactive map to enhance location clarity and ease of identification. Bold colors and dynamic text were employed to create a visually engaging effect that captures attention and reinforces the project’s identity.",
     tags: ["Documentary", "Drone", "Architecture"],
     gradient: "linear-gradient(135deg, #C4722A, #8B5E3C, #5C3D2E)",
     videoSrc: "/videos/vi3.mp4",
@@ -68,9 +68,9 @@ const projects = [
   },
   {
     id: 4,
-    title: "Luxury property cinematic tour",
+    title: "Clear Showcase of the Investment Land",
     category: "Premium Real Estate",
-    description: "A refined walkthrough crafted to elevate premium listings.High-impact visuals for social and paid campaigns.Smooth pacing designed to retain attention and convert interest into serious leads.",
+    description: "A real estate video highlighting an investment plot using 3D outlining to give viewers a clear sense of the space and boundaries. An aerial shot combined with modern visual effects was employed to create a professional feel that enhances the presentation’s clarity and its investment value.",
     tags: ["Luxury", "Cinematic", "Social Media"],
     gradient: "linear-gradient(135deg, #F5C842, #C4722A, #8B5E3C)",
     videoSrc: "/videos/v4.mp4",
