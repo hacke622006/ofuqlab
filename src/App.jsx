@@ -26,7 +26,7 @@ const teamMembers = [
   {
     name: "Ahmed Yaichi",
     role: "Founder & Lead Videographer",
-    photo: ahmedPhoto, 
+    photo: ahmedPhoto,
     specialty: "Drone Operator & Creative Director",
     bio: "Visionary filmmaker with a passion for aerial cinematography and storytelling. Ahmed brings a unique perspective to every project, turning ordinary scenes into cinematic experiences.",
     skills: ["Creative Direction", "Post-Production"]
@@ -44,7 +44,7 @@ const projects = [
     tags: ["Aerial", "4K Cinema", "Real Estate"],
     gradient: "linear-gradient(135deg, #E8931E, #C4722A, #8B5E3C)",
     videoSrc: "/videos/v1.mp4",
-    isVertical: false 
+    isVertical: false
   },
   {
     id: 2,
@@ -260,11 +260,11 @@ function App() {
       {/* Loading Screen */}
       {isLoading && (
         <div style={loadingScreenStyle}>
-          <img 
+          <img
             src={ofuqlabLogo}
             alt="ofuqlab logo"
-            width="300" 
-            height="300" 
+            width="300"
+            height="300"
             style={{ animation: 'logoFadeIn 1.5s ease-in-out', objectFit: 'contain' }}
           />
         </div>
@@ -319,7 +319,7 @@ function Navbar({ setActiveSection }) {
 
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', handleResize);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', handleResize);
@@ -331,7 +331,7 @@ function Navbar({ setActiveSection }) {
     if (element) {
       // Close menu first if open
       setIsMobileMenuOpen(false);
-      
+
       // Small timeout to allow menu to close before scrolling
       setTimeout(() => {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -513,7 +513,7 @@ function Navbar({ setActiveSection }) {
 
       {/* Overlay to close menu when clicking outside */}
       {isMobileMenuOpen && (
-        <div 
+        <div
           style={{
             position: 'fixed',
             top: 0,
@@ -909,9 +909,9 @@ function About() {
           {/* LEFT: Text + Stats */}
           <div>
             <p style={paragraphStyle}>
-              ofuqlab (أفق لاب) is an independent video production and design studio 
-              founded in Algeria, Africa. We specialize in cinematic storytelling — from 
-              real estate tours and brand films to creative visual design — blending the 
+              ofuqlab (أفق لاب) is an independent video production and design studio
+              founded in Algeria, Africa. We specialize in cinematic storytelling — from
+              real estate tours and brand films to creative visual design — blending the
               rich visual culture of North Africa with contemporary production techniques.
             </p>
 
@@ -998,7 +998,7 @@ function Team() {
     borderRadius: '50%',
     marginBottom: '1.5rem',
     border: `3px solid ${colors.lightSand}`,
-    
+
   };
 
   const nameStyle = {
@@ -1078,9 +1078,9 @@ function Team() {
                 e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
               }}
             >
-              <img 
-                src={member.photo} 
-                alt={member.name} 
+              <img
+                src={member.photo}
+                alt={member.name}
                 style={photoStyle}
               />
 
@@ -1110,6 +1110,18 @@ function Team() {
 // ==================== PROJECTS ====================
 function Projects() {
   const [activeVideo, setActiveVideo] = useState(null);
+
+  // Prevent body scrolling when modal is open
+  useEffect(() => {
+    if (activeVideo) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [activeVideo]);
 
   // Close modal on ESC key
   useEffect(() => {
@@ -1155,7 +1167,7 @@ function Projects() {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
     gap: '3rem',
-    alignItems: 'start', 
+    alignItems: 'start',
   };
 
   const cardStyleBase = {
@@ -1317,122 +1329,124 @@ function Projects() {
   };
 
   return (
-    <section id="projects" style={sectionStyle}>
-      <div style={containerStyle}>
-        <div style={labelStyle}>OUR WORK</div>
-        <h2 style={titleStyle}>Selected Projects</h2>
+    <>
+      <section id="projects" style={sectionStyle}>
+        <div style={containerStyle}>
+          <div style={labelStyle}>OUR WORK</div>
+          <h2 style={titleStyle}>Selected Projects</h2>
 
-        <div style={gridStyle}>
-          {projects.map((project) => (
-            <div
-              key={project.id}
-              style={cardStyleBase}
-              onClick={() => setActiveVideo(project)}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-5px)';
-                e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
-                const btn = e.currentTarget.querySelector('.play-btn');
-                if (btn) {
-                  btn.style.transform = 'scale(1.1)';
-                  btn.style.backgroundColor = '#FFFFFF';
-                }
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
-                const btn = e.currentTarget.querySelector('.play-btn');
-                if (btn) {
-                  btn.style.transform = 'scale(1)';
-                  btn.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-                }
-              }}
-            >
-              {/* Conditional Thumbnail Rendering */}
-              {project.videoSrc ? (
-                // VIDEO EXISTS -> Clean video with NO gradient
-                <div style={{ ...thumbnailContainerStyle, background: '#000' }}>
-                  <video
-                    src={project.videoSrc}
-                    style={thumbnailVideoStyle}
-                    muted
-                    loop
-                    playsInline
-                    autoPlay
-                    preload="metadata"
-                  />
-                  {/* Play Button Overlay */}
-                  <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                    <div className="play-btn" style={playButtonValidationStyle}>
-                      <svg 
-                        width="24" 
-                        height="24" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path d="M5 3L19 12L5 21V3Z" fill={colors.amber} stroke={colors.amber} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
+          <div style={gridStyle}>
+            {projects.map((project) => (
+              <div
+                key={project.id}
+                style={cardStyleBase}
+                onClick={() => setActiveVideo(project)}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-5px)';
+                  e.currentTarget.style.boxShadow = '0 12px 40px rgba(0, 0, 0, 0.15)';
+                  const btn = e.currentTarget.querySelector('.play-btn');
+                  if (btn) {
+                    btn.style.transform = 'scale(1.1)';
+                    btn.style.backgroundColor = '#FFFFFF';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.08)';
+                  const btn = e.currentTarget.querySelector('.play-btn');
+                  if (btn) {
+                    btn.style.transform = 'scale(1)';
+                    btn.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
+                  }
+                }}
+              >
+                {/* Conditional Thumbnail Rendering */}
+                {project.videoSrc ? (
+                  // VIDEO EXISTS -> Clean video with NO gradient
+                  <div style={{ ...thumbnailContainerStyle, background: '#000' }}>
+                    <video
+                      src={project.videoSrc}
+                      style={thumbnailVideoStyle}
+                      muted
+                      loop
+                      playsInline
+                      autoPlay
+                      preload="metadata"
+                    />
+                    {/* Play Button Overlay */}
+                    <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                      <div className="play-btn" style={playButtonValidationStyle}>
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M5 3L19 12L5 21V3Z" fill={colors.amber} stroke={colors.amber} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ) : (
-                // NO VIDEO -> Gradient Placeholder
-                <div style={{ ...thumbnailContainerStyle, background: project.gradient }}>
-                  <div style={categoryBadgeStyle}>{project.category}</div>
-                  <div style={yearBadgeStyle}>{project.year}</div>
+                ) : (
+                  // NO VIDEO -> Gradient Placeholder
+                  <div style={{ ...thumbnailContainerStyle, background: project.gradient }}>
+                    <div style={categoryBadgeStyle}>{project.category}</div>
+                    <div style={yearBadgeStyle}>{project.year}</div>
 
-                  {/* Play Button & Text */}
-                  <div className="play-btn" style={playButtonValidationStyle}>
-                    <svg 
-                      width="24" 
-                      height="24" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                       <path d="M5 3L19 12L5 21V3Z" fill={colors.amber} stroke={colors.amber} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
+                    {/* Play Button & Text */}
+                    <div className="play-btn" style={playButtonValidationStyle}>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path d="M5 3L19 12L5 21V3Z" fill={colors.amber} stroke={colors.amber} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <div style={{
+                      fontFamily: fonts.body,
+                      fontSize: '0.85rem',
+                      fontWeight: 600,
+                      color: '#FFFFFF',
+                      textTransform: 'uppercase',
+                      letterSpacing: '0.1em',
+                      position: 'absolute',
+                      bottom: '2rem',
+                      zIndex: 1,
+                    }}>Video Coming Soon</div>
                   </div>
-                  <div style={{
-                    fontFamily: fonts.body,
-                    fontSize: '0.85rem',
-                    fontWeight: 600,
-                    color: '#FFFFFF',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.1em',
-                    position: 'absolute',
-                    bottom: '2rem',
-                    zIndex: 1,
-                  }}>Video Coming Soon</div>
-                </div>
-              )}
+                )}
 
-              {/* Info Area */}
-              <div style={infoAreaStyle}>
-                <h3 style={projectTitleStyle}>{project.title}</h3>
-                <p style={descriptionStyle}>{project.description}</p>
-                <div style={tagsContainerStyle}>
-                  {project.tags.map((tag, index) => (
-                    <span key={index} style={tagStyle}>
-                      {tag}
-                    </span>
-                  ))}
+                {/* Info Area */}
+                <div style={infoAreaStyle}>
+                  <h3 style={projectTitleStyle}>{project.title}</h3>
+                  <p style={descriptionStyle}>{project.description}</p>
+                  <div style={tagsContainerStyle}>
+                    {project.tags.map((tag, index) => (
+                      <span key={index} style={tagStyle}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* Video Modal */}
       {activeVideo && (
-        <div 
-          style={modalOverlayStyle} 
+        <div
+          style={modalOverlayStyle}
           onClick={() => setActiveVideo(null)}
         >
           {/* Content Wrapper to position relative close button */}
           <div style={{ position: 'relative' }} onClick={(e) => e.stopPropagation()}>
-            <button 
+            <button
               style={closeButtonStyle}
               onClick={() => setActiveVideo(null)}
               aria-label="Close"
@@ -1456,7 +1470,7 @@ function Projects() {
           </div>
         </div>
       )}
-    </section>
+    </>
   );
 }
 
@@ -1933,7 +1947,7 @@ function Footer() {
 
 
         <p style={saharaNoteStyle}>
-          Built with passion in the Sahara 
+          Built with passion in the Sahara
         </p>
       </div>
     </footer>
